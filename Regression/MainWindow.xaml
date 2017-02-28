@@ -10,21 +10,28 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txtX1" HorizontalAlignment="Left" Height="23" Margin="84,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtX4" HorizontalAlignment="Left" Height="23" Margin="84,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtX3" HorizontalAlignment="Left" Height="23" Margin="84,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtX2" HorizontalAlignment="Left" Height="23" Margin="84,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtY1" HorizontalAlignment="Left" Height="23" Margin="150,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtY4" HorizontalAlignment="Left" Height="23" Margin="150,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtY3" HorizontalAlignment="Left" Height="23" Margin="150,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
-        <TextBox x:Name="txtY2" HorizontalAlignment="Left" Height="23" Margin="150,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged"/>
+        <TextBox x:Name="txtX1" HorizontalAlignment="Left" Height="23" Margin="84,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="1"/>
+        <TextBox x:Name="txtX4" HorizontalAlignment="Left" Height="23" Margin="84,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="7"/>
+        <TextBox x:Name="txtX3" HorizontalAlignment="Left" Height="23" Margin="84,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="5"/>
+        <TextBox x:Name="txtX2" HorizontalAlignment="Left" Height="23" Margin="84,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="3"/>
+        <TextBox x:Name="txtY1" HorizontalAlignment="Left" Height="23" Margin="150,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="2"/>
+        <TextBox x:Name="txtY4" HorizontalAlignment="Left" Height="23" Margin="150,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="8"/>
+        <TextBox x:Name="txtY3" HorizontalAlignment="Left" Height="23" Margin="150,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="6"/>
+        <TextBox x:Name="txtY2" HorizontalAlignment="Left" Height="23" Margin="150,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="4"/>
         <Label x:Name="label" Content="X" HorizontalAlignment="Left" Margin="101,19,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Y" HorizontalAlignment="Left" Margin="167,19,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2_Copy2" Content="Punk 2" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Height="23"/>
-        <Label x:Name="label2_Copy" Content="Punk 4" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Height="23"/>
-        <Label x:Name="label2_Copy1" Content="Punk 1" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="23"/>
-        <Label x:Name="label2_Copy3" Content="Punk 3" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Height="23"/>
-        <Button x:Name="btnCalc" Content="Beregn" HorizontalAlignment="Left" Margin="207,169,0,0" VerticalAlignment="Top" Width="75" Click="btnCalc_Click"/>
+        <Label x:Name="label2_Copy2" Content="Punkt 2" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="label2_Copy" Content="Punkt 4" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="label2_Copy1" Content="Punkt 1" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="label2_Copy3" Content="Punkt 3" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Height="23"/>
+        <Button x:Name="btnCalc" Content="Beregn" HorizontalAlignment="Left" Margin="125,203,0,0" VerticalAlignment="Top" Width="75" Click="btnCalc_Click"/>
+        <Label x:Name="label2" Content="f(x)=" HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRes" Content="Result" HorizontalAlignment="Left" Margin="49,240,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtX5" HorizontalAlignment="Left" Height="23" Margin="84,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="9"/>
+        <TextBox x:Name="txtY5" HorizontalAlignment="Left" Height="23" Margin="150,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="10"/>
+        <Label x:Name="label2_Copy4" Content="Punkt 5" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="labeltxt" Content="q(a) = " HorizontalAlignment="Left" Margin="13,271,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblQ" Content="tal" HorizontalAlignment="Left" Margin="49,271,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

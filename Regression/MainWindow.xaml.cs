@@ -33,51 +33,77 @@ namespace Regression
         private void btnCalc_Click(object sender, RoutedEventArgs e)
         {
             Dictionary<double, double> punkter = new Dictionary<double, double>();
-            double q = 0;
+            
             punkter[double.Parse(txtX1.Text)] = double.Parse(txtY1.Text);
             punkter[double.Parse(txtX2.Text)] = double.Parse(txtY2.Text);
             punkter[double.Parse(txtX3.Text)] = double.Parse(txtY3.Text);
             punkter[double.Parse(txtX4.Text)] = double.Parse(txtY4.Text);
 
 
-
+            lblRes.Content = qdiff(punkter) + "x^2";
+            lblQ.Content = q(qdiff(punkter), punkter);
             
         }
+        
+        public double qdiff(Dictionary<double, double> dict)
+        {
+            double upperSum = 0;
+            double lowerSum = 0;
+            
+            foreach (KeyValuePair<double, double> kord in dict)
+            {
+                double xSq = Math.Pow(kord.Key, 2);
+                upperSum = upperSum + (xSq * kord.Value);
+            }
+
+            foreach (KeyValuePair<double, double> kord in dict)
+            {
+                double xSq = Math.Pow(kord.Key, 2);
+                lowerSum = lowerSum + Math.Pow(xSq, 2);
+            }
+            //Console.WriteLine(upperSum);
+            //Console.WriteLine(lowerSum);
+            double val = upperSum / lowerSum;
+            return val;
+
+        }
+
         public double q(double a, Dictionary<double, double> dict)
         {
-            double val = 0;
-
-            foreach (KeyValuePair<double, double> entry in dict)
+            double sum = 0;
+            foreach (KeyValuePair<double, double> kord in dict)
             {
-                val = val + Math.Pow(Math.Pow(entry.Key, 2)*a - entry.Value, 2);
+                double xSq = Math.Pow(kord.Key, 2);
+                sum = sum + Math.Pow(xSq - kord.Value, 2);
             }
-
-            return val;
-        }
-        public double qdiff(double a, Dictionary<double, double> dict)
-        {
-            double val = 0;
-
-            foreach (KeyValuePair<double, double> entry in dict)
-            {
-                val = val + 2 * Math.Pow(entry.Key, 2)*(Math.Pow(entry.Key, 2) * a - entry.Value);
-            }
-
-            return val;
-
+            return sum;
         }
 
-        public double brute(int range)
+        public double beregnR(Dictionary<double, double> dict)
         {
-            double a = -10;
-            double high = double.MaxValue;
-            for (int i = 0; i < range; i++)
+            //Average Real
+            double aveSumR = 0;
+            foreach (KeyValuePair<double, double> kord in dict)
             {
-                if (q(a)
-                {
-
-                }
+                aveSumR = aveSumR + kord.Value;
             }
+            double averageR = aveSumR / dict.Count;
+
+            //Average Model
+            double aveSumM = 0;
+            foreach (KeyValuePair<double, double> kord in dict)
+            {
+                aveSumM = aveSumM + q(kord.Key, dict);
+            }
+            double averageM = aveSumM / dict.Count;
+
+
+            double upperSum = 0;
+            foreach (KeyValuePair<double, double> kord in dict)
+            {
+                upperSum = upperSum + Math.Pow((q(kord.Key, dict) - averageM),2);
+            }
+
         }
 
     }
