@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Regression"
+        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="350" Width="387">
+    <Grid Margin="0,0,30,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -24,14 +25,16 @@
         <Label x:Name="label2_Copy" Content="Punkt 4" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Height="23"/>
         <Label x:Name="label2_Copy1" Content="Punkt 1" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="23"/>
         <Label x:Name="label2_Copy3" Content="Punkt 3" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Height="23"/>
-        <Button x:Name="btnCalc" Content="Beregn" HorizontalAlignment="Left" Margin="125,203,0,0" VerticalAlignment="Top" Width="75" Click="btnCalc_Click"/>
-        <Label x:Name="label2" Content="f(x)=" HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCalc" Content="Beregn" HorizontalAlignment="Left" Margin="125,208,0,0" VerticalAlignment="Top" Width="75" Click="btnCalc_Click"/>
+        <Label x:Name="label2" Content="f(x) =" HorizontalAlignment="Left" Margin="16,240,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblRes" Content="Result" HorizontalAlignment="Left" Margin="49,240,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtX5" HorizontalAlignment="Left" Height="23" Margin="84,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="9"/>
         <TextBox x:Name="txtY5" HorizontalAlignment="Left" Height="23" Margin="150,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextChanged="textBox_TextChanged" TabIndex="10"/>
         <Label x:Name="label2_Copy4" Content="Punkt 5" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Height="23"/>
-        <Label x:Name="labeltxt" Content="q(a) = " HorizontalAlignment="Left" Margin="13,271,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labeltxt" Content="R^2 = " HorizontalAlignment="Left" Margin="13,271,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblQ" Content="tal" HorizontalAlignment="Left" Margin="49,271,0,0" VerticalAlignment="Top"/>
-
+        <CheckBox x:Name="cbLine" Content="Lineær" HorizontalAlignment="Left" Margin="226,50,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbExpo" Content="Eksponentiel" HorizontalAlignment="Left" Margin="226,78,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbPoly" Content="Polynomisk" HorizontalAlignment="Left" Margin="226,106,0,0" VerticalAlignment="Top" Cursor="Polynomisk" IsThreeState="True"/>
     </Grid>
 </Window>

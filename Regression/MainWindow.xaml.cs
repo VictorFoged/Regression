@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Research.DynamicDataDisplay;
+using Microsoft.Research.DynamicDataDisplay.Charts;
 
 namespace Regression
 {
@@ -20,6 +22,7 @@ namespace Regression
     /// </summary>
     public partial class MainWindow : Window
     {
+        Dictionary<double, double> punkter = new Dictionary<double, double>();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,17 +35,43 @@ namespace Regression
 
         private void btnCalc_Click(object sender, RoutedEventArgs e)
         {
-            Dictionary<double, double> punkter = new Dictionary<double, double>();
-            
-            punkter[double.Parse(txtX1.Text)] = double.Parse(txtY1.Text);
-            punkter[double.Parse(txtX2.Text)] = double.Parse(txtY2.Text);
-            punkter[double.Parse(txtX3.Text)] = double.Parse(txtY3.Text);
-            punkter[double.Parse(txtX4.Text)] = double.Parse(txtY4.Text);
+
+            if (txtX1.Text != "" || txtY1.Text != "")
+            {
+                punkter[double.Parse(txtX1.Text)] = double.Parse(txtY1.Text);
+            }
+            if (txtX2.Text != "" || txtY2.Text != "")
+            {
+                punkter[double.Parse(txtX2.Text)] = double.Parse(txtY2.Text);
+            }
+            if (txtX3.Text != "" || txtY3.Text != "")
+            {
+                punkter[double.Parse(txtX3.Text)] = double.Parse(txtY3.Text);
+            }
+            if (txtX4.Text != "" || txtY4.Text != "")
+            {
+                punkter[double.Parse(txtX4.Text)] = double.Parse(txtY4.Text);
+            }
+            if (txtX5.Text != "" || txtY5.Text != "")
+            {
+                punkter[double.Parse(txtX5.Text)] = double.Parse(txtY5.Text);
+            }
+
+
+            VerticalAxis axis = new VerticalAxis();
+            axis.SetConversion(0, 100, 100, 0);
+
+            //plotter.Children.Add(axis);
+            // this is only an example of visible rectange. Use here rect you actually need.
+            plotter.Viewport.Visible = new Rect(0, 0, 1, 100);
+            plotter.AddLineChart(punkter);
+
+
 
 
             lblRes.Content = qdiff(punkter) + "x^2";
-            lblQ.Content = q(qdiff(punkter), punkter);
-            
+            lblQ.Content = beregnR(punkter);
+                        
         }
         
         public double qdiff(Dictionary<double, double> dict)
@@ -93,7 +122,7 @@ namespace Regression
             double aveSumM = 0;
             foreach (KeyValuePair<double, double> kord in dict)
             {
-                aveSumM = aveSumM + q(kord.Key, dict);
+                aveSumM = aveSumM + f(kord.Key);
             }
             double averageM = aveSumM / dict.Count;
 
@@ -101,9 +130,28 @@ namespace Regression
             double upperSum = 0;
             foreach (KeyValuePair<double, double> kord in dict)
             {
-                upperSum = upperSum + Math.Pow((q(kord.Key, dict) - averageM),2);
+                upperSum = upperSum + Math.Pow((f(kord.Key) - averageM),2);
+                Console.WriteLine(upperSum);
             }
 
+            double lowerSum = 0;
+            foreach (KeyValuePair<double, double> kord in dict)
+            {
+                lowerSum = lowerSum + Math.Pow(kord.Value - averageR, 2);
+            }
+
+            double val = upperSum / lowerSum;
+            Console.WriteLine(val);
+
+            Console.WriteLine(aveSumM);
+            Console.WriteLine(aveSumR);
+            return val;
+        }
+
+        public double f(double x)
+        {
+            double a = qdiff(punkter);
+            return a * Math.Pow(x, 2);
         }
 
     }
